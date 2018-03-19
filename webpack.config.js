@@ -14,7 +14,8 @@ const config = {
     entry: {
         common: "./src/page/common/index.js",
         index: "./src/page/index/index.js",
-        login: "./src/page/login/index.js",
+        'user-login': "./src/page/user-login/index.js",
+        'user-register': "./src/page/user-register/index.js",
         result: "./src/page/result/index.js",
 
     },
@@ -56,6 +57,8 @@ const config = {
         new extractTextPlugin("css/[name].css"),
         new htmlWebpackPlugin(getHtmlConfig("index", 'ZTMall电商购物平台')),
         new htmlWebpackPlugin(getHtmlConfig("result", '操作结果')),
+        new htmlWebpackPlugin(getHtmlConfig("user-login", '用户登录')),
+        new htmlWebpackPlugin(getHtmlConfig("user-register", '用户注册')),
     ],
     optimization: {
         splitChunks: {

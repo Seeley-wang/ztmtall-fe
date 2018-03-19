@@ -38,7 +38,6 @@ const _mm = {
     getUrlParam: name => {
         const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         const result = window.location.search.substr(1).match(reg);
-        console.log(result);
         return result ? decodeURIComponent(result[2]) : null;
     },
     // 渲染html
@@ -49,7 +48,7 @@ const _mm = {
     // 统一登录处理
     doLogin: () => {
         window.location.href =
-            "./login.html?redirect=" + encodeURIComponent(window.location.href);
+            "./user-login.html?redirect=" + encodeURIComponent(window.location.href);
     },
     goHome: () => {
         window.location.href = "./index.html";
