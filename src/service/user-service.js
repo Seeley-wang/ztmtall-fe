@@ -64,8 +64,44 @@ const _user = {
             error: reject
         })
     },
+    getUserInfo: function (userInfo, resolve, reject) {
+        _mm.request({
+            url: _mm.getServerUrl('/user/get_infomation'),
+            data: userInfo,
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
+    updateUserInfo:function (userInfo, resolve, reject) {
+        _mm.request({
+            url: _mm.getServerUrl('/user/update_infomation'),
+            data: userInfo,
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
+    updatePassword:function (userInfo, resolve, reject) {
+        _mm.request({
+            url: _mm.getServerUrl('/user/update_password'),
+            data: userInfo,
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+    },
 
-    //
+    //退出
+    logout: function (resolve, reject) {
+        _mm.request({
+            url: _mm.getServerUrl('/user/logout'),
+            method: 'POST',
+            success: resolve,
+            error: reject
+        })
+
+    }
 
 };
 

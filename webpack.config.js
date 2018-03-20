@@ -12,12 +12,15 @@ const getHtmlConfig = (name, title) => ({
 });
 const config = {
     entry: {
-        common: "./src/page/common/index.js",
-        index: "./src/page/index/index.js",
+        'common': "./src/page/common/index.js",
+        'index': "./src/page/index/index.js",
         'user-login': "./src/page/user-login/index.js",
         'user-register': "./src/page/user-register/index.js",
         'user-pass-reset': "./src/page/user-pass-reset/index.js",
-        result: "./src/page/result/index.js",
+        'result': "./src/page/result/index.js",
+        'user-center': "./src/page/user-center/index.js",
+        'user-center-update': "./src/page/user-center-update/index.js",
+        'pass-update': "./src/page/pass-update/index.js",
 
     },
     output: {
@@ -27,22 +30,21 @@ const config = {
     },
     mode: "development",
     module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: extractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: "css-loader"
-                })
-            },
-            {
-                test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
-                loader: "url-loader?limit=2014&name=resource/[name].[ext]"
-            },
-            {
-                test: /\.string$/,
-                loader: "html-loader"
-            }
+        rules: [{
+            test: /\.css$/,
+            use: extractTextPlugin.extract({
+                fallback: "style-loader",
+                use: "css-loader"
+            })
+        },
+        {
+            test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
+            loader: "url-loader?limit=2014&name=resource/[name].[ext]"
+        },
+        {
+            test: /\.string$/,
+            loader: "html-loader"
+        }
         ]
     },
     resolve: {
@@ -60,7 +62,10 @@ const config = {
         new htmlWebpackPlugin(getHtmlConfig("result", '操作结果')),
         new htmlWebpackPlugin(getHtmlConfig("user-login", '用户登录')),
         new htmlWebpackPlugin(getHtmlConfig("user-register", '用户注册')),
-        new htmlWebpackPlugin(getHtmlConfig("user-pass-reset", '找回密码'))
+        new htmlWebpackPlugin(getHtmlConfig("user-pass-reset", '找回密码')),
+        new htmlWebpackPlugin(getHtmlConfig("user-center", '个人中心')),
+        new htmlWebpackPlugin(getHtmlConfig("user-center-update", '修改个人信息')),
+        new htmlWebpackPlugin(getHtmlConfig("pass-update", '修改密码'))
     ],
     optimization: {
         splitChunks: {
@@ -69,8 +74,7 @@ const config = {
             minChunks: 1, // 最小 chunk ，默认1
             maxAsyncRequests: 1, // 最大异步请求数， 默认1
             maxInitialRequests: 1, // 最大初始化请求书，默认1
-            name: () => {
-            }, // 名称，此选项课接收 function
+            name: () => { }, // 名称，此选项课接收 function
             cacheGroups: {
                 // 这里开始设置缓存的 chunks
                 priority: "0", // 缓存组优先级 false | object |

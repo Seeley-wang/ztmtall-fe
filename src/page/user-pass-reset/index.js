@@ -82,7 +82,7 @@ const page = {
                     newPassword: password,
                     forgetToken: this.data.token
                 }, res => {
-                    _mm.doLogin()
+                    window.location.href = './result.html?type=rest-pass';
                 }, function (errMsg) {
                     formError.show(errMsg)
                 })

@@ -55,11 +55,11 @@ const _mm = {
     },
     // 成功提示
     successTips: (msg = "成功") => {
-        alert("msg");
+        alert(msg);
     },
     // 错误提示
     errorTips: (err = "失败") => {
-        alert("err");
+        alert(err);
     },
     // 字段验证,支持非空,手机,邮箱
     validate: (value, type) => {
