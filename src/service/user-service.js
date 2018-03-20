@@ -4,7 +4,7 @@ const _user = {
     // 用户登录
     login: function (userInfo, resolve, reject) {
         _mm.request({
-            url: _mm.getServerUrl('/user/login'),
+            url: _mm.getServerUrl('/user/login.do'),
             data: userInfo,
             method: 'POST',
             success: resolve,
@@ -27,7 +27,7 @@ const _user = {
     // 用户注册
     register: function (userInfo, resolve, reject) {
         _mm.request({
-            url: _mm.getServerUrl('/user/register'),
+            url: _mm.getServerUrl('/user/register.do'),
             data: userInfo,
             method: 'POST',
             success: resolve,
